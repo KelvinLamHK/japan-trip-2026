@@ -59,10 +59,18 @@ export const itinerary = [
     images: [
       "/images/新穗高高空纜車.jpg",
       "/images/飛驒高山老街.jpg",
+      "/images/新穗高高空纜車2.webp",
+      "/images/新穗高高空纜車3.webp",
+      "/images/新穗高高空纜車4.jpg",
+      "/images/新穗高高空纜車5.jpg",
     ],
     imageNames: [
       "新穗高空中纜車",
       "飛驒高山老街",
+      "新穗高空中纜車2",
+      "新穗高空中纜車3",
+      "新穗高空中纜車4",
+      "新穗高空中纜車5",
     ],
   },
   {
@@ -75,7 +83,7 @@ export const itinerary = [
       "行程連結：https://willer-travel.com/dy/3/bus/pc/common/teiryujoChizu?bmTeiryujoId=18,747&gengoKb=05",
     ],
     images: [
-      "/images/新穗高高空纜車2.webp",
+      "/images/route-map.png",
     ],
     imageNames: [
       "白川鄉點燈",
@@ -105,12 +113,10 @@ export const itinerary = [
       "自由活動（市內景點、美食探索）",
     ],
     images: [
-      "/images/新穗高高空纜車3.webp",
-      "/images/新穗高高空纜車4.jpg",
+      "/images/route-map.png",
     ],
     imageNames: [
       "雪上電單車",
-      "北海道神宮",
     ],
   },
   {
@@ -122,7 +128,7 @@ export const itinerary = [
       "夜宿札幌",
     ],
     images: [
-      "/images/新穗高高空纜車5.jpg",
+      "/images/route-map.png",
     ],
     imageNames: [
       "札幌夜景",
