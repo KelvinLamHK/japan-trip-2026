@@ -42,7 +42,7 @@ export const itinerary = [
         title: "排壽司大",
         content: "唔知排幾耐隊",
         images: [
-          "/images/壽司大.jpg",
+          "./images/壽司大.jpg",
         ],
         imageNames: [
           "壽司大",
@@ -58,7 +58,7 @@ export const itinerary = [
         title: "排I'm donut",
         content: "又唔知排幾耐隊",
         images: [
-          "/images/imdonut.jpg",
+          "./images/imdonut.jpg",
         ],
         imageNames: [
           "I'm donut",
@@ -118,7 +118,7 @@ export const itinerary = [
         title: "平野之浜看日出",
         content: "魔鬼行程04:30起身去平野之浜睇日出",
         images: [
-          "/images/平野.jpg",
+          "./images/平野.jpg",
         ],
         imageNames: [
           "平野之浜",
@@ -140,7 +140,7 @@ export const itinerary = [
         title: "富士山cafe The Park",
         content: "靚景食嘢",
         images: [
-          "/images/the_park.jpeg",
+          "./images/the_park.jpeg",
         ],
         imageNames: [
           "The Park",
@@ -226,7 +226,7 @@ export const itinerary = [
         time: "09:30",
         title: "雨晴海岸",
         content: "天氣好就有靚景",
-        images: ["/images/雨晴海岸.jpeg"],
+        images: ["./images/雨晴海岸.jpeg"],
         imageNames: ["雨晴海岸"],
         location: {
           name: "雨晴海岸",
@@ -250,7 +250,7 @@ export const itinerary = [
           googleMapsUrl: "https://www.google.com/maps/place/%E9%AB%98%E5%B2%A1%E7%AB%99%E5%89%8D/@36.741931,137.013521,17z/data=!3m1!4b1!4m6!3m5!1s0x5ff782c7bb42da8d:0x32d4233cd1d27e6f!8m2!3d36.7419267!4d137.0160959!16s%2Fg%2F11j2zs_w0g!5m2!1e4!1e1?entry=ttu&g_ep=EgoyMDI1MTAyMC4wIKXMDSoASAFQAw%3D%3D"
         },
         images: [
-          "/images/八八八.jpg",
+          "./images/八八八.jpg",
         ],
         imageNames: [
           "白川鄉",
@@ -269,7 +269,7 @@ export const itinerary = [
           googleMapsUrl: "https://www.google.com/maps/place/%E5%AE%87%E5%A5%88%E6%9C%88%E6%9D%89%E4%B9%83%E4%BA%95%E9%A3%AF%E5%BA%97/@36.817337,137.5815554,17z/data=!4m10!3m9!1s0x5ff7b114f6a2555f:0x5b8db4d47697a6ab!5m3!1s2026-01-24!4m1!1i2!8m2!3d36.8173327!4d137.5841303!16s%2Fg%2F121xkf_t!5m2!1e1!1e4?entry=ttu&g_ep=EgoyMDI1MTAyMC4wIKXMDSoASAFQAw%3D%3D"
         },
         images: [
-          "/images/宇奈月杉乃井飯店.jpg",
+          "./images/宇奈月杉乃井飯店.jpg",
         ],
         imageNames: [
           "宇奈月杉乃井飯店",
@@ -298,10 +298,10 @@ export const itinerary = [
         title: "新穗高纜車",
         content: "新穗高纜車",
         images: [
-          "/images/新穗高高空纜車2.webp",
-          "/images/新穗高高空纜車3.webp",
-          "/images/新穗高高空纜車4.jpg",
-          "/images/新穗高高空纜車5.jpg",
+          "./images/新穗高高空纜車2.webp",
+          "./images/新穗高高空纜車3.webp",
+          "./images/新穗高高空纜車4.jpg",
+          "./images/新穗高高空纜車5.jpg",
         ],
         imageNames: [
           "新穗高高空纜車",
@@ -330,7 +330,7 @@ export const itinerary = [
           "參觀傳統建築和商店",
           "品嚐飛驒牛肉和當地美食"
         ],
-        images: ["/images/飛驒高山老街.jpg"],
+        images: ["./images/飛驒高山老街.jpg"],
         imageNames: ["飛驒高山老街"],
         location: {
           name: "飛驒高山老街",
@@ -435,8 +435,8 @@ export const itinerary = [
         title: "根室花丸迴轉壽司",
         content: "好撚正",
         images: [
-          "/images/根室花丸1.webp",
-          "/images/根室花丸2.jpg",
+          "./images/根室花丸1.webp",
+          "./images/根室花丸2.jpg",
         ],
         imageNames: [
           "根室花丸迴轉壽司",
@@ -448,7 +448,7 @@ export const itinerary = [
         title: "北海道神宮",
         content: "參拜北海道神宮",
         images: [
-          "/images/北海道神宮.webp",
+          "./images/北海道神宮.webp",
         ],
         imageNames: [
           "北海道神宮",
@@ -500,7 +500,7 @@ export const itinerary = [
           "辦理登機手續",
           "通過安檢"
         ],
-        images: ["/images/丘珠空港.webp"],
+        images: ["./images/丘珠空港.webp"],
         imageNames: ["丘珠空港"],
         location: {
           name: "丘珠空港",
@@ -538,7 +538,7 @@ export const itinerary = [
           mapcode: "五稜郭塔",
           googleMapsUrl: "https://www.google.com/maps/place/%E4%BA%94%E7%A8%9C%E9%83%AD%E5%A1%94/@41.7946739,140.7514451,17z/data=!3m2!4b1!5s0x5f9ef46c1ee53197:0xb7095d7dcd759014!4m6!3m5!1s0x5f9ef46bb53c0eb3:0x75f5f82028f1a89e!8m2!3d41.7946699!4d140.75402!16s%2Fg%2F120kngn6!5m2!1e4!1e1?entry=ttu&g_ep=EgoyMDI1MTAyMC4wIKXMDSoASAFQAw%3D%3D"
         },
-        images: ["/images/五棱郭.jpg"],
+        images: ["./images/五棱郭.jpg"],
         imageNames: ["五棱郭"],
       },
       {
@@ -550,7 +550,7 @@ export const itinerary = [
           mapcode: "函館山纜車山麓站",
           googleMapsUrl: "https://www.google.com/maps/place/%E5%87%BD%E9%A4%A8%E5%B1%B1%E7%BA%9C%E8%BB%8A%E5%B1%B1%E9%BA%93%E7%AB%99/@41.7609078,140.7117257,17z/data=!3m1!4b1!4m6!3m5!1s0x5f9ef300e0655347:0x15cc42443399016c!8m2!3d41.7609078!4d140.7143006!16s%2Fg%2F1tftwsvr!5m2!1e4!1e1?entry=ttu&g_ep=EgoyMDI1MTAyMC4wIKXMDSoASAFQAw%3D%3D"
         },
-        images: ["/images/函館山.jpg"],
+        images: ["./images/函館山.jpg"],
         imageNames: ["函館山"],
       }
     ]
@@ -568,7 +568,7 @@ export const itinerary = [
           mapcode: "金森紅磚倉庫",
           googleMapsUrl: "https://www.google.com/maps/place/%E9%87%91%E6%A3%AE%E7%B4%85%E7%A3%9A%E5%80%89%E5%BA%AB/@41.7664966,140.7115068,17z/data=!3m1!4b1!4m6!3m5!1s0x5f9ef3a8785f50a3:0xe796ba2772ca1f8!8m2!3d41.7664927!4d140.7163777!16s%2Fg%2F1219h35q!5m2!1e4!1e1?entry=ttu&g_ep=EgoyMDI1MTAyMC4wIKXMDSoASAFQAw%3D%3D"
         },
-        images: ["/images/金森紅磚倉庫.jpg"],
+        images: ["./images/金森紅磚倉庫.jpg"],
         imageNames: ["金森紅磚倉庫"],
       },
       {
@@ -580,7 +580,7 @@ export const itinerary = [
           mapcode: "八幡坂",
           googleMapsUrl: "https://www.google.com/maps/place/%E5%85%AB%E5%B9%A1%E5%9D%82/@41.7660534,140.7105634,16.75z/data=!4m14!1m7!3m6!1s0x5f9ef3a8785f50a3:0xe796ba2772ca1f8!2z6YeR5qOu57SF56Oa5YCJ5bqr!8m2!3d41.7664927!4d140.7163777!16s%2Fg%2F1219h35q!3m5!1s0x5f9ef3aa2754fc4f:0x3626c1996788b95e!8m2!3d41.7639012!4d140.7118043!16s%2Fg%2F11gdybgpdp!5m2!1e4!1e1?entry=ttu&g_ep=EgoyMDI1MTAyMC4wIKXMDSoASAFQAw%3D%3D"
         },
-        images: ["/images/八幡坂.webp"],
+        images: ["./images/八幡坂.webp"],
         imageNames: ["八幡坂"],
       },
       {
