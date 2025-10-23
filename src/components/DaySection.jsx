@@ -192,66 +192,71 @@ const DaySection = ({ day, index }) => {
     <section
       ref={sectionRef}
       id={`day-${index + 1}`}
-      className={`fade-in-section min-h-screen py-12 sm:py-16 lg:py-20 px-2 sm:px-4 lg:px-8 ${
-        index % 2 === 0 ? 'bg-gray-50' : 'bg-white'
+      className={`py-16 px-4 lg:px-8 ${
+        index % 2 === 0 ? 'bg-white' : 'bg-gray-50'
       }`}
     >
-      <div className="w-full max-w-7xl mx-auto">
-        {/* 日期標題 - 移动端优化 */}
-        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-          <div className="flex items-center justify-center space-x-3 sm:space-x-4 mb-3 sm:mb-4">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-teal-500 rounded-full flex items-center justify-center shadow-lg">
-              <span className="text-white font-bold text-sm sm:text-base lg:text-lg">{index + 1}</span>
+      <div className="w-full max-w-6xl mx-auto">
+        {/* 日期標題 - 简洁设计 */}
+        <div className="text-center mb-12">
+          <div className="flex items-center justify-center space-x-4 mb-6">
+            <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">{index + 1}</span>
             </div>
-            <div>
-              <p className="text-base sm:text-lg lg:text-xl text-teal-600 font-semibold">{day.date}</p>
+            <div className="text-left">
+              <p className="text-lg text-blue-600 font-semibold">{day.date}</p>
             </div>
           </div>
-          <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-gray-800 font-bold leading-tight">
+          
+          <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             {day.title}
           </h3>
         </div>
 
-        {/* 內容區域 - 移动端优化 */}
-        <div className="w-full">
-          {/* 行程詳情 - 移动端优化 */}
-          <div className="space-y-6 sm:space-y-8">
-            <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl p-4 sm:p-6 lg:p-8 xl:p-10">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 sm:mb-6 space-y-3 sm:space-y-0">
-                <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">行程安排</h4>
+        {/* 內容區域 */}
+        <div className="space-y-8">
+          {/* 行程詳情 */}
+          <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center space-x-3">
+                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold">📅</span>
+                </div>
+                <h4 className="text-xl font-bold text-gray-900">行程安排</h4>
               </div>
-              
-              {day.timeline ? (
-                <TimelineSection 
-                  timelineItems={day.timeline} 
-                  images={day.images || []} 
-                  imageNames={day.imageNames || []} 
-                />
-              ) : (
-                <div className="text-center py-12">
-                  <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-2xl">⏰</span>
-                  </div>
-                  <h5 className="text-lg font-semibold text-gray-700 mb-2">时间线数据准备中</h5>
-                  <p className="text-gray-500">此日期的详细时间线正在整理中</p>
-                </div>
-              )}
-              
             </div>
-
-            {/* 住宿詳情 - 移动端优化 */}
-            {day.hotelDetail && (
-              <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl p-4 sm:p-6 lg:p-8 xl:p-10">
-                <div className="flex items-center justify-between mb-4 sm:mb-6">
-                  <h4 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">住宿資訊</h4>
-                  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-teal-500 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-xs sm:text-sm">🏨</span>
-                  </div>
+            
+            {day.timeline ? (
+              <TimelineSection 
+                timelineItems={day.timeline} 
+                images={day.images || []} 
+                imageNames={day.imageNames || []} 
+              />
+            ) : (
+              <div className="text-center py-8">
+                <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-xl">⏰</span>
                 </div>
-                <HotelPopup hotelDetail={day.hotelDetail} />
+                <h5 className="text-lg font-semibold text-gray-700 mb-2">时间线数据准备中</h5>
+                <p className="text-gray-500">此日期的详细时间线正在整理中</p>
               </div>
             )}
           </div>
+
+          {/* 住宿詳情 */}
+          {day.hotelDetail && (
+            <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-200">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold">🏨</span>
+                  </div>
+                  <h4 className="text-xl font-bold text-gray-900">住宿資訊</h4>
+                </div>
+              </div>
+              <HotelPopup hotelDetail={day.hotelDetail} />
+            </div>
+          )}
         </div>
       </div>
     </section>

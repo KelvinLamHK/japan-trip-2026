@@ -3,15 +3,32 @@ import React, { useState, useEffect } from 'react';
 const Header = ({ itinerary }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeDay, setActiveDay] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      
+      // 检测当前活跃的日期
+      const sections = itinerary.map((_, index) => 
+        document.getElementById(`day-${index + 1}`)
+      );
+      
+      let current = 0;
+      sections.forEach((section, index) => {
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            current = index;
+          }
+        }
+      });
+      setActiveDay(current);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [itinerary]);
 
   const scrollToDay = (dayIndex) => {
     const element = document.getElementById(`day-${dayIndex + 1}`);
@@ -23,75 +40,70 @@ const Header = ({ itinerary }) => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-2xl border-b border-gray-200' 
-          : 'bg-white/90 backdrop-blur-sm shadow-lg'
+          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200' 
+          : 'bg-white/80 backdrop-blur-sm'
       }`}
     >
-      <div className="w-full px-2 sm:px-4 lg:px-8 max-w-7xl mx-auto">
-        <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Logo - 移动端优化 */}
-          <div className="flex items-center space-x-2 sm:space-x-4">
-            <div className="relative">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-teal-500 to-teal-700 rounded-full flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-sm sm:text-lg">日</span>
-              </div>
-              <div className="absolute -top-0.5 -right-0.5 sm:-top-1 sm:-right-1 w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-full flex items-center justify-center">
-                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-teal-500 rounded-full"></div>
-              </div>
+      <div className="w-full px-4 lg:px-8 max-w-7xl mx-auto">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo - 简洁设计 */}
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">日</span>
             </div>
             <div>
-              <span className="text-lg sm:text-xl lg:text-2xl font-black text-gray-900">日本冬季之旅</span>
-              <div className="text-xs sm:text-sm font-semibold text-teal-600">2026</div>
+              <h1 className="text-xl font-bold text-gray-900">日本冬季之旅</h1>
+              <p className="text-sm text-gray-600">2026</p>
             </div>
           </div>
 
-          {/* 桌面導航 - 不对称设计 */}
-          <nav className="hidden lg:flex items-center space-x-2">
+          {/* 桌面導航 - 简洁设计 */}
+          <nav className="hidden lg:flex items-center space-x-1">
             {itinerary.map((day, index) => (
               <button
                 key={index}
                 onClick={() => scrollToDay(index)}
-                className="relative px-4 py-3 text-sm font-semibold text-gray-700 hover:text-teal-600 hover:bg-teal-50 rounded-xl transition-all duration-300 group"
+                className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                  activeDay === index
+                    ? 'bg-blue-600 text-white'
+                    : 'text-gray-700 hover:bg-gray-100'
+                }`}
               >
-                <span className="relative z-10">Day {index + 1}</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-teal-600 rounded-xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                Day {index + 1}
               </button>
             ))}
           </nav>
 
-          {/* 漢堡菜單按鈕 - 移动端优化 */}
+          {/* 移动端菜单按钮 */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 sm:p-3 rounded-lg sm:rounded-xl hover:bg-gray-100 transition-all duration-300"
+            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
           >
-            <div className={`hamburger ${isMenuOpen ? 'active' : ''}`}>
-              <div className="hamburger-line w-6 h-0.5 sm:w-7 sm:h-0.5 bg-gray-700 mb-1 sm:mb-1.5"></div>
-              <div className="hamburger-line w-6 h-0.5 sm:w-7 sm:h-0.5 bg-gray-700 mb-1 sm:mb-1.5"></div>
-              <div className="hamburger-line w-6 h-0.5 sm:w-7 sm:h-0.5 bg-gray-700"></div>
-            </div>
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
           </button>
         </div>
 
-        {/* 移動端菜單 - 移动端优化 */}
+        {/* 移动端菜单 */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-white/98 backdrop-blur-md border-t border-gray-200 shadow-2xl">
-            <nav className="py-4 sm:py-6 space-y-2 sm:space-y-3">
+          <div className="lg:hidden bg-white border-t border-gray-200">
+            <nav className="py-4 space-y-2">
               {itinerary.map((day, index) => (
                 <button
                   key={index}
                   onClick={() => scrollToDay(index)}
-                  className="block w-full text-left px-4 sm:px-6 py-3 sm:py-4 text-gray-700 hover:text-teal-600 hover:bg-teal-50 transition-all duration-300 rounded-lg sm:rounded-xl mx-0 sm:mx-2"
+                  className={`block w-full text-left px-4 py-3 rounded-lg transition-colors ${
+                    activeDay === index
+                      ? 'bg-blue-600 text-white'
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
                 >
-                  <div className="flex items-center space-x-3">
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-teal-500 rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold text-xs sm:text-sm">{index + 1}</span>
-                    </div>
-                    <div>
-                      <div className="font-semibold text-base sm:text-lg">Day {index + 1}</div>
-                      <div className="text-xs sm:text-sm text-gray-500">{day.date}</div>
-                    </div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium">Day {index + 1}</span>
+                    <span className="text-sm text-gray-500">{day.date}</span>
                   </div>
                 </button>
               ))}
